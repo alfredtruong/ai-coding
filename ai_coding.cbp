@@ -32,6 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ETL/ETL.cpp" />
+		<Unit filename="ETL/ETL.h" />
+		<Unit filename="LinearRegression/LinearRegression.cpp" />
+		<Unit filename="LinearRegression/LinearRegression.h" />
+		<Unit filename="LogisticRegression/LogisticRegression.cpp" />
+		<Unit filename="LogisticRegression/LogisticRegression.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

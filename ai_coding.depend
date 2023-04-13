@@ -4983,3 +4983,37 @@
 	"ETL.h"
 	<Eigen/Dense>
 
+1681381778 source:c:\users\ahkar\onedrive\documents\github\tutorial-cpp-ai-coding\main.cpp
+	<iostream>
+	"ETL/ETL.h"
+	"LinearRegression/LinearRegression.h"
+	"LogisticRegression/LogisticRegression.h"
+
+1681374369 c:\users\ahkar\onedrive\documents\github\tutorial-cpp-ai-coding\etl\etl.h
+	<iostream>
+	<fstream>
+	<Eigen/Dense>
+	<vector>
+
+1681377312 c:\users\ahkar\onedrive\documents\github\tutorial-cpp-ai-coding\linearregression\linearregression.h
+	"ETL.h"
+	<Eigen/Dense>
+
+1681374384 source:c:\users\ahkar\onedrive\documents\github\tutorial-cpp-ai-coding\etl\etl.cpp
+	"ETL.h"
+	<stdlib.h>
+	<cmath>
+	<boost/algorithm/string.hpp>
+
+1681382094 source:c:\users\ahkar\onedrive\documents\github\tutorial-cpp-ai-coding\linearregression\linearregression.cpp
+	"LinearRegression.h"
+	<cmath>
+	<iostream>
+	<vector>
+
+1681376578 source:c:\users\ahkar\onedrive\documents\github\tutorial-cpp-ai-coding\logisticregression\logisticregression.cpp
+
+1681377312 c:\users\ahkar\onedrive\documents\github\tutorial-cpp-ai-coding\logisticregression\logisticregression.h
+	"ETL.h"
+	<Eigen/Dense>
+
