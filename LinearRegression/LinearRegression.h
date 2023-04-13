@@ -12,7 +12,7 @@ public:
   // fit with gradient descent
   float OLS_Cost(Eigen::MatrixXd X, Eigen::MatrixXd y, Eigen::VectorXd theta);
   std::tuple<Eigen::VectorXd, std::vector<float>> GradientDescent(Eigen::MatrixXd X, Eigen::MatrixXd y, Eigen::VectorXd, float alpha, int iters);
-
+  float RSquared(Eigen::MatrixXd, Eigen::MatrixXd y_hat);
 };
 
 #endif // __LINEARREGRESSION_H__

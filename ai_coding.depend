@@ -1,15 +1,16 @@
 # depslib dependency file v1.0
-1681353019 source:c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\main.cpp
+1681377354 source:c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\main.cpp
 	<iostream>
-	"ETL.h"
+	"ETL/ETL.h"
+	"LinearRegression/LinearRegression.h"
 
-1681292819 source:c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\etl.cpp
+1681374384 source:c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\etl.cpp
 	"ETL.h"
 	<stdlib.h>
 	<cmath>
 	<boost/algorithm/string.hpp>
 
-1681292847 c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\etl.h
+1681374369 c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\etl.h
 	<iostream>
 	<fstream>
 	<Eigen/Dense>
@@ -4933,4 +4934,52 @@
 	<boost/algorithm/string/find_format.hpp>
 	<boost/algorithm/string/finder.hpp>
 	<boost/algorithm/string/formatter.hpp>
+
+1681375047 source:c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\linearregression.cpp
+	"LinearRegression.h"
+	<cmath>
+	<iostream>
+	<vector>
+
+1681375006 c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\linearregression.h
+	"ETL.h"
+	<Eigen/Dense>
+
+1681374384 source:c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\etl\etl.cpp
+	"ETL.h"
+	<stdlib.h>
+	<cmath>
+	<boost/algorithm/string.hpp>
+
+1681374369 c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\etl\etl.h
+	<iostream>
+	<fstream>
+	<Eigen/Dense>
+	<vector>
+
+1681376578 source:c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\logisticregression\logisticregression.cpp
+
+1681375047 source:c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\linearregression\linearregression.cpp
+	"LinearRegression.h"
+	<cmath>
+	<iostream>
+	<vector>
+
+1681377312 c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\linearregression\linearregression.h
+	"ETL.h"
+	<Eigen/Dense>
+
+1681377606 source:c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\main\linearregression.cpp
+	<iostream>
+	"ETL.h"
+	"LinearRegression.h"
+
+1681377606 source:c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\main\logisticregression.cpp
+	<iostream>
+	"ETL.h"
+	"LogisticRegression.h"
+
+1681377312 c:\users\ahkar\onedrive\documents\github\ai_coding\ai_coding\logisticregression\logisticregression.h
+	"ETL.h"
+	<Eigen/Dense>
 
