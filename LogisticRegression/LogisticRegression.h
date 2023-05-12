@@ -3,6 +3,8 @@
 
 #include "ETL.h"
 #include <Eigen/Dense>
+#include <string>
+#include <vector>
 
 
 #endif // __LOGISTICREGRESSION_H__

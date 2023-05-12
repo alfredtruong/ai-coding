@@ -1,5 +1,6 @@
 #include "ETL.h"
 
+#include <vector>
 #include <stdlib.h>
 #include <cmath>
 #include <boost/algorithm/string.hpp>
@@ -24,7 +25,7 @@ std::vector<std::vector<std::string>> ETL::readCSV() {
 
 Eigen::MatrixXd ETL::CSVtoEigen(std::vector<std::vector<std::string>> dataset, int rows, int cols)
 {
-  if (header==true)
+  if (header == true)
   {
     rows = rows - 1;
   }
@@ -50,17 +51,43 @@ auto ETL::Mean(Eigen::MatrixXd data) -> decltype(data.colwise().mean())
 // column-wise stddev
 auto ETL::Std(Eigen::MatrixXd data) -> decltype((data.array().square().colwise().sum() / (data.rows()-1)).sqrt())
 {
-  return (data.array().square().colwise().sum() / (data.rows()-1)).sqrt();
+  return ((data.array().square().colwise().sum()) / (data.rows()-1)).sqrt();
 }
 
-Eigen::MatrixXd ETL::Normalize(Eigen::MatrixXd data)
+Eigen::MatrixXd ETL::Normalize(Eigen::MatrixXd data, bool normalizeTarget)
 {
-  auto mean = Mean(data);
-  Eigen::MatrixXd scaled_data = data.rowwise() - mean;
-  auto stddev = Std(scaled_data);
+  Eigen::MatrixXd dataNorm;
+  if (normalizeTarget == true)
+  {
+    dataNorm = data;
+  }
+  else
+  {
+    dataNorm = data.leftCols(data.cols()-1);
+  }
 
+  //std::cout << __func__ << ": " << dataNorm.rows() << std::endl;
+  //std::cout << __func__ << ": " << dataNorm.cols() << std::endl;
+
+  auto mean = Mean(dataNorm);
+  std::cout << "ok2" << std::endl;
+  std::cout << dataNorm.rows() << std::endl;
+  std::cout << dataNorm.cols() << std::endl;
+
+  std::cout << mean.rows() << std::endl;
+  std::cout << mean.cols() << std::endl;
+
+  Eigen::MatrixXd scaled_data = dataNorm.rowwise() - mean;
+  std::cout << "ok3" << std::endl;
+
+  auto stddev = Std(scaled_data);
   Eigen::MatrixXd norm = scaled_data.array().rowwise()/stddev;
 
+  if (normalizeTarget == false)
+  {
+    norm.conservativeResize(norm.rows(), norm.cols() + 1);
+    norm.col(norm.cols()-1) = data.rightCols(1);
+  }
   return norm;
 }
 

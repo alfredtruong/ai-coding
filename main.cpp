@@ -2,6 +2,8 @@
 #include "ETL/ETL.h"
 #include "LinearRegression/LinearRegression.h"
 #include "LogisticRegression/LogisticRegression.h"
+#include <vector>
+#include <string>
 
 /*
 https://www.youtube.com/watch?v=jKtbNvCT8Dc // linear regression
@@ -31,7 +33,7 @@ int LinearRegression_main()
   //std::cout << dataMat.rows() << " " << dataMat.cols() << std::endl;
 
   // test normalization
-  Eigen::MatrixXd norm = etl.Normalize(dataMat);
+  Eigen::MatrixXd norm = etl.Normalize(dataMat, true);
   std::cout << norm << std::endl;
   //std::cout << norm.rows() << " " << norm.cols() << std::endl;
 
@@ -95,8 +97,10 @@ int LinearRegression_main()
 
 int LogisticRegression_main()
 {
+  // binary classification problem
+
   // test reading
-  ETL etl("wine/wine.data.txt", ",", true);
+  ETL etl("census-income/adult_data.csv", ",", false);
   std::vector<std::vector<std::string>> dataset = etl.readCSV();
   /*
   for (auto it = dataset.begin(); it < dataset.end(); it++)
@@ -107,15 +111,35 @@ int LogisticRegression_main()
   */
   int rows = dataset.size();
   int cols = dataset[0].size();
+  //std::cout << rows << std::endl;
+  //std::cout << cols << std::endl;
 
-  std::cout << rows << std::endl;
-  std::cout << cols << std::endl;
+  Eigen::MatrixXd dataMat = etl.CSVtoEigen(dataset, rows, cols);
+  //std::cout << dataMat.rows() << std::endl;
+  //std::cout << dataMat.cols() << std::endl;
+  //std::cout << dataMat << std::endl;
 
+  Eigen::MatrixXd norm = etl.Normalize(dataMat, false);
+  std::cout << norm.rows() << std::endl;
+  std::cout << norm.cols() << std::endl;
+  //std::cout << norm << std::endl;
+/*
+
+  Eigen::MatrixXd X_train, y_train, X_test, y_test;
+  std::tuple<Eigen::MatrixXd, Eigen::MatrixXd, Eigen::MatrixXd, Eigen::MatrixXd> split_data = etl.TrainTestSplit(norm, 0.8);
+  std::tie(X_train, y_train, X_test, y_test) = split_data;
+
+  std::cout << "X_train rows = " << X_train.rows() << " - " << "X_train cols = " << X_train.cols() << std::endl;
+  std::cout << "y_train rows = " << y_train.rows() << " - " << "y_train cols = " << y_train.cols() << std::endl;
+  std::cout << "X_test rows = " << X_test.rows() << " - " << "X_test cols = " << X_test.cols() << std::endl;
+  std::cout << "y_test rows = " << y_test.rows() << " - " << "y_test cols = " << y_test.cols() << std::endl;
+*/
   return 0;
 }
 
 int main()
 {
-  LinearRegression_main();
+  //LinearRegression_main();
+  LogisticRegression_main();
   return 0;
 }
